@@ -407,10 +407,9 @@ export class BrowserActionAPI {
 
     append({
       label: extension.name,
+      enabled: Boolean(manifest.homepage_url),
       click: () => {
-        const homePageUrl =
-          manifest.homepage_url || `https://chrome.google.com/webstore/detail/${extension.id}`
-        this.ctx.store.createTab({ url: homePageUrl })
+        this.ctx.store.createTab({ url: manifest.homepage_url })
       },
     })
 
