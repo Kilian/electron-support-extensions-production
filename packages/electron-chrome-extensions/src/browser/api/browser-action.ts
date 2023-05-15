@@ -167,6 +167,7 @@ export class BrowserActionAPI {
 
     this.ctx.store.on('active-tab-changed', () => {
       this.onUpdate()
+      this.popup?.browserWindow?.blur();
     })
 
     // Clear out tab details when removed
